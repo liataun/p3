@@ -11,6 +11,5 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'CitationController@index');
+Route::get('/citation', 'CitationController@buildCitation');
