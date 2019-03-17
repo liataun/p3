@@ -17,6 +17,4 @@ Route::get('/citation', 'CitationController@buildCitation');
 /**
  * Practice
  */
-if (config('app.debug') == true) {
-    Route::any('/practice/{n?}', 'PracticeController@index');
-}
+Route::any('/practice/{n?}', 'PracticeController@index');

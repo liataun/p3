@@ -32,6 +32,9 @@ class PracticeController extends Controller
      */
     public function index($n = null)
     {
+        if (!config('app.debug')) {
+            return abort(404);
+        }
         $methods = [];
         # Load the requested `practiceN` method
         if (!is_null($n)) {
