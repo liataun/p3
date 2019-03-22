@@ -3,7 +3,7 @@
 #
 # Customize the following for your project/server
 #
-docRoot="/var/www/html/foobooks-lrvl"
+docRoot="/var/www/html/p3"
 usernameServer="root@142.93.199.85"
 
 
