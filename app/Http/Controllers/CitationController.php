@@ -12,7 +12,7 @@ class CitationController extends Controller
             'authorLast' => 'Snow',
             'authorInitials' => 'a',
             'year' => '2020',
-            'title' => 'a',
+            'title' => 'A day in the life',
             'city' => 'a',
             'publisher' => 'a',
             'intext' => 'a',
