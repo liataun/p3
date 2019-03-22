@@ -8,7 +8,19 @@ class CitationController extends Controller
 {
     public function index()
     {
-        return 'Display instructions, form, and results';
+        return view('form')->with(['selected' => 'single',
+            'authorLast' => 'a',
+            'authorInitials' => 'a',
+            'year' => 'a',
+            'title' => 'a',
+            'city' => 'a',
+            'publisher' => 'a',
+            'intext' => 'a',
+            'userEmail' => 'a',
+            'hasErrors' => 'a',
+            'errors' => ['b','c'],
+            'citation' => 'a',
+        ]);
     }
 
     public function buildCitation()
