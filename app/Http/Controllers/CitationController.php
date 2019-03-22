@@ -11,7 +11,7 @@ class CitationController extends Controller
         return view('form')->with(['selected' => 'single',
             'authorLast' => 'a',
             'authorInitials' => 'a',
-            'year' => 'a',
+            'year' => '2020',
             'title' => 'a',
             'city' => 'a',
             'publisher' => 'a',
