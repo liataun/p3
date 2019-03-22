@@ -9,7 +9,7 @@ class CitationController extends Controller
     public function index()
     {
         return view('form')->with(['selected' => 'single',
-            'authorLast' => 'a',
+            'authorLast' => 'Snow',
             'authorInitials' => 'a',
             'year' => '2020',
             'title' => 'a',
