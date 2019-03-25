@@ -65,11 +65,11 @@ APA Citation Creation
                    value='{{$publisher ?? 'The Wall'}}'>
         </div>
 
-        {{--<div class="form-group">--}}
-            {{--<label for='publisher'>Include in-text citation?</label>--}}
-            {{--<input type='checkbox' class='form-check' id='intext' name='intext'--}}
-            {{--<?php if (isset($intext) and $intext) echo 'checked' ?>>--}}
-        {{--</div>--}}
+        <div class="form-group">
+            <label for='publisher'>Include in-text citation?</label>
+            <input type='checkbox' class='form-check' id='intext' name='intext' @if($intext == 'Yes') {{'checked'}}@endif>
+            {{$intext}}
+        </div>
 
         <div class="form-group">
             <label for='userEmail' id='userEmailLabel'>What email do you wish we could send this to?</label>

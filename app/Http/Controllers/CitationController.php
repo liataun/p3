@@ -15,7 +15,7 @@ class CitationController extends Controller
             'title' => 'A day in the life',
             'city' => 'Boston',
             'publisher' => 'a',
-            'intext' => 'a',
+            'intext' => 'No',
             'userEmail' => 'a',
             'hasErrors' => 'a',
             'errors' => ['b','c'],
