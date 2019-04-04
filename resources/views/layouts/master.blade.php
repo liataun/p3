@@ -16,6 +16,19 @@
 
 <header>
     <a href='/'><img src='/images/notfound.png' id='logo' alt='Not Found Logo'></a>
+    <nav>
+        @foreach(config('app.nav') as $link => $label)
+            <ul>
+                {{-- If currrent path matches, do no link --}}
+                @if(Request::is($link))
+                    {{$label}}
+                    {{-- Otherwise create link --}}
+                @else
+                    <a href='{{ $link }}'>{{ $label }}</a>
+                @endif
+            </ul>
+        @endforeach
+    </nav>
 </header>
 
 <section>

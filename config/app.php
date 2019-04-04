@@ -2,6 +2,17 @@
 
 return [
 
+    /**
+     * navigation helper design by Susan Buck
+     */
+    'nav' => [
+        //URL => label
+        '/' => 'Home',
+        '/citation' => 'Cite',
+        '/practice' => 'Practice',
+        '/user' => 'User',
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Application Name

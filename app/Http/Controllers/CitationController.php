@@ -25,6 +25,6 @@ class CitationController extends Controller
 
     public function buildCitation()
     {
-        return 'Completed Citation based on user input';
+        return view('citation');
     }
 }
