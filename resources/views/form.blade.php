@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-APA Citation Creation
+    APA Citation Creation
 @endsection
 
 @section('content')
@@ -15,7 +15,7 @@ APA Citation Creation
     <!-- Form to collect values for our book citation. Send to citation.php to compose. Use logic.php variables to display. -->
     <form class='text-dark' method='get' action='citation.php'>
 
-        <div class="form-group">
+        <div class='form-group'>
             <label for='authorType'>Select Author Type</label>
             <select class='form-control' id='authorType' name='authorType'>
                 <!-- Any changes to logic.php must ensure that one and only one option is selected -->
@@ -24,13 +24,13 @@ APA Citation Creation
             </select>
         </div>
 
-        <div class="form-group">
+        <div class='form-group'>
             <label for='authorLast'>Enter author last name or organization name</label>
             <input type='text' class='form-control' id='authorLast' name='authorLast'
                    value='{{$authorLast ?? 'Snow'}}'>
         </div>
 
-        <div class="form-group">
+        <div class='form-group'>
             <label for='authorInitials' id='authorInitialsLabel'>Enter author initials</label>
             <input type='text' class='form-control' id='authorInitials' name='authorInitials'
                    value='{{$authorInitials ?? 'J.'}}'
@@ -40,38 +40,41 @@ APA Citation Creation
             </small>
         </div>
 
-        <div class="form-group">
+        <div class='form-group'>
             <label for='year' id='yearLabel'>Enter year of publication</label>
             <input type='number' class='form-control' id='year' name='year'
                    value='{{$year ?? 2018}}' aria-describedby='yearLabel yearInfo'>
             <small class='form-text text-muted' id='yearInfo'>Four digit year only.</small>
         </div>
 
-        <div class="form-group">
+        <div class='form-group'>
             <label for='title'>Enter book title</label>
             <input type='text' class='form-control' id='title' name='title'
                    value='{{$title ?? 'The Icy Bite of Life'}}'>
         </div>
 
-        <div class="form-group">
+        <div class='form-group'>
             <label for='city'>Enter publication city</label>
             <input type='text' class='form-control' id='city' name='city'
                    value='{{$city ?? 'Winterfell'}}'>
         </div>
 
-        <div class="form-group">
+        <div class='form-group'>
             <label for='publisher'>Enter publisher name</label>
             <input type='text' class='form-control' id='publisher' name='publisher'
                    value='{{$publisher ?? 'The Wall'}}'>
         </div>
 
-        <div class="form-group">
+        <div class='form-group'>
             <label for='publisher'>Include in-text citation?</label>
-            <input type='checkbox' class='form-check' id='intext' name='intext' @if($intext == 'Yes') {{'checked'}}@endif>
+            <input type='checkbox'
+                   class='form-check'
+                   id='intext'
+                   name='intext' @if($intext == 'Yes') {{'checked'}}@endif>
             {{$intext}}
         </div>
 
-        <div class="form-group">
+        <div class='form-group'>
             <label for='userEmail' id='userEmailLabel'>What email do you wish we could send this to?</label>
             <input type='email'
                    class='form-control'
@@ -79,7 +82,9 @@ APA Citation Creation
                    name='userEmail'
                    aria-describedby='userEmailLabel userEmailInfo'
                    value='{{$userEmail ?? 'You@Education.me'}}'>
-            <small class='form-text text-muted' id='userEmailInfo'>Must be a valid email. Email will NOT be sent.</small>
+            <small class='form-text text-muted'
+                   id='userEmailInfo'>Must be a valid email. Email will NOT be sent.
+            </small>
         </div>
 
         <input type='submit' class='mb-3 btn btn-primary' name='cite' value='Generate Citation'>

@@ -5,5 +5,5 @@
 @endsection
 
 @section('content')
-Completed Citation based on user input
+    Completed Citation based on user input
 @endsection

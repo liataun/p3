@@ -3,6 +3,7 @@
 <head>
     <title>@yield('title')</title>
     <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
 
     <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'
           rel='stylesheet'
@@ -12,7 +13,7 @@
 
     @yield('head')
 </head>
-<body>
+<body class='p-5'>
 
 <header>
     <a href='/'><img src='/images/notfound.png' id='logo' alt='Not Found Logo'></a>
