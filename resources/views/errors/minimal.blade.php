@@ -49,7 +49,7 @@
         </style>
     </head>
     <header>
-        <a href='/'><img src='/images/notfound.png' id='logo' alt='Not Found Logo'></a>
+        <a href='/'><img src='/images/logo.png' class='img' id='logo' alt='A(P)A Logo'></a>
     </header>
     <body>
         <div class="flex-center position-ref full-height">
