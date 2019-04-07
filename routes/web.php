@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/', 'CitationController@index');
+Route::redirect('/', '/home');
+Route::get('/home', 'CitationController@index');
 Route::get('/citation', 'CitationController@show');
-Route::get('/citation/build', 'CitationController@buildCitation');
+Route::get('/citation/build', 'CitationController@validateCitation');
 
 Route::get('/user', 'UserController@user');
 

@@ -1,30 +1,30 @@
 @extends('layouts.master')
 
 @section('title')
-    Complete
+    APA Result
 @endsection
 
 @section('content')
-    Completed Citation based on user input
 
-    <!-- Display completed Reference -->
-    <?php if (isset($citation)): ?>
-    <p class='text-success'>{{$authorLast}}
-        ({{$year}}).
-        <span id='italics'>{{$title}}.</span>
-        {{$city}}: {{$publisher}}.
-    </p>
-    <?php endif ?>
+    @if(isset($fields['authorType']) and isset($citation))
+        <h4 class='text-secondary'>Your References citation is:</h4>
+        <p class='text-success'>{{$fields['authorLast']}}
+            ({{$fields['year']}}).
+            <span id='italics'>{{$fields['title']}}.</span>
+            {{$fields['city']}}: {{$fields['publisher']}}.
+        </p>
 
-    <?php if (isset($intext) and isset($citation)): ?>
-    <p>{{$authorLast}} ({{$year}})</p>
-    <?php endif ?>
+        @if(isset($fields['intext']))
+            <h4 class='text-secondary'>Your inline citation is:</h4>
+            <p class='text-info'>{{$fields['authorLast']}} ({{$fields['year']}})</p>
+        @endif
+    @endif
 
-    <!-- Learning how to hide/show elements. Might be needed for a more complete citation generator. -->
-    <?php if (!isset($citation)): ?>
-    {{--    <p class='invisible'>Waiting for form submission!</p>--}}
-    <p class='alert'>Waiting for form submission!</p>
-    <?php endif ?>
-
-
+    @if(!isset($citation))
+        <h3 class='text-secondary'>Coming Soon:</h3>
+        <p class='text-info'>Ability to save each result for later viewing.</p>
+        <p class='alert alert-warning'>Data not available! Please go
+            <a href='/home'>Home</a> to enter your data.
+        </p>
+    @endif
 @endsection

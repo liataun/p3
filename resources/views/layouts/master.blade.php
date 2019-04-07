@@ -16,16 +16,14 @@
 <body class='p-5'>
 
 <header>
-    <a href='/'><img src='/images/notfound.png' id='logo' alt='Not Found Logo'></a>
-    <nav>
+    <nav class='navbar'>
+        <a href='/'><img src='/images/logo.png' class='img' id='logo' alt='A(P)A Logo'></a>
         @foreach(config('app.nav') as $link => $label)
-            <ul>
-                {{-- If currrent path matches, do no link --}}
-                @if(Request::is($link))
-                    {{$label}}
-                    {{-- Otherwise create link --}}
-                @else
-                    <a href='{{ $link }}'>{{ $label }}</a>
+            <ul class='navbar-nav'>
+                @if(Request::is($link)) {{-- If currrent path matches, do no link --}}
+                <li class='nav-item active'>{{$label}}</li>
+                @else {{-- Otherwise create link --}}
+                <li class='nav-item'><a class='nav-link' href='/{{ $link }}'>{{ $label }}</a></li>
                 @endif
             </ul>
         @endforeach

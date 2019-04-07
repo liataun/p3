@@ -17,26 +17,27 @@ class CitationController extends Controller
             'title' => $request->session()->get('title', 'A day in the life'),
             'city' => $request->session()->get('city', 'Boston'),
             'publisher' => $request->session()->get('publisher', 'The Wall'),
-            'intext' => $request->session()->get('intext', 'No'),
+            'intext' => $request->session()->get('intext', null),
             'userEmail' => $request->session()->get('userEmail', 'You@Education.me'),
             'citation' => $request->session()->get('citation', null),
         ]);
     }
 
-    public function buildCitation(Request $request)
+    public function validateCitation(Request $request)
     {
         $request->validate([
             'authorType' => 'required',
             'authorLast' => 'required',
-            'authorInitials' => 'required',
+            'authorInitials' => 'requiredIf:authorType,single',
             'year' => 'required|digits:4',
             'title' => 'required',
             'city' => 'required',
             'publisher' => 'required',
+            'intext' => ['nullable', 'regex:/^on$/i'], //cannot use accepted
             'userEmail' => 'nullable|email'
         ]);
 
-        return redirect('/citation')->withInput();
+        return view('/citation')->with(['fields' => $request->all()])->with(['citation' => true]);
     }
 
     public function show(Request $request)

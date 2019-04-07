@@ -7,10 +7,10 @@ return [
      */
     'nav' => [
         //URL => label
-        '/' => 'Home',
-        //'/citation' => 'Cite',
-        '/user' => 'User',
-        '/practice' => 'Practice',
+        'home' => 'Home',
+        'citation' => 'References',
+        'user' => 'User',
+        'practice' => 'Practice',
     ],
 
     /*
