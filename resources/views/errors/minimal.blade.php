@@ -46,6 +46,10 @@
                 font-size: 18px;
                 text-align: center;
             }
+
+            .img {
+                height: 100px;
+            }
         </style>
     </head>
     <header>

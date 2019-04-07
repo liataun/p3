@@ -9,18 +9,7 @@ class CitationController extends Controller
 {
     public function index(Request $request)
     {
-        return view('form')->with([
-            'authorType' => $request->session()->get('authorType', 'single'),
-            'authorLast' => $request->session()->get('authorLast', 'Snow'),
-            'authorInitials' => $request->session()->get('authorInitials', 'M.'),
-            'year' => $request->session()->get('year', '2020'),
-            'title' => $request->session()->get('title', 'A day in the life'),
-            'city' => $request->session()->get('city', 'Boston'),
-            'publisher' => $request->session()->get('publisher', 'The Wall'),
-            'intext' => $request->session()->get('intext', null),
-            'userEmail' => $request->session()->get('userEmail', 'You@Education.me'),
-            'citation' => $request->session()->get('citation', null),
-        ]);
+        return view('form');
     }
 
     public function validateCitation(Request $request)

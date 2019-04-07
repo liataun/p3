@@ -19,4 +19,5 @@
 
 ## Notes for instructor
 Logo was created by me using Adobe Illustrator.
+On production the Practice navigation path will return a 404 error. I wanted easy testing of custom error pages.
 I am still a little confused about how best to design my routes and method names. What I have works, but I am not happy with my choices were I were creating a more fully fledged version of this site.

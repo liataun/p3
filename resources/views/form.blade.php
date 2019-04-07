@@ -18,8 +18,8 @@
             <label for='authorType'>Select Author Type</label>
             <select class='form-control' id='authorType' name='authorType'>
                 <!-- Any changes to code must ensure that one and only one option is selected -->
-                <option value='single' <?= (old('selected') == 'single') ? ('selected') : null; ?>>Single Author</option>
-                <option value='organization' <?= (old('selected') == 'organization') ? ('selected') : null; ?>>Organization As Author</option>
+                <option value='single' <?= (old('authorType') == 'single') ? ('selected') : null; ?>>Single Author</option>
+                <option value='organization' <?= (old('authorType') == 'organization') ? ('selected') : null; ?>>Organization As Author</option>
             </select>
             @if($errors->get('authorType'))
                 <div class='alert alert-danger'>{{ $errors->first('authorType') }}</div>
@@ -29,7 +29,7 @@
         <div class='form-group'>
             <label for='authorLast'>Enter author last name or organization name</label>
             <input type='text' class='form-control' id='authorLast' name='authorLast'
-                   value='{{old('authorLast')}}'>
+                   value='{{old('authorLast') ?? 'Snow'}}'>
             @if($errors->get('authorLast'))
                 <div class='alert alert-danger'>{{ $errors->first('authorLast') }}</div>
             @endif
@@ -51,7 +51,7 @@
         <div class='form-group'>
             <label for='year' id='yearLabel'>Enter year of publication</label>
             <input type='number' class='form-control' id='year' name='year'
-                   value='{{old('year')}}' aria-describedby='yearLabel yearInfo'>
+                   value='{{old('year') ?? 1010}}' aria-describedby='yearLabel yearInfo'>
             <small class='form-text text-muted' id='yearInfo'>Four digit year only.</small>
             @if($errors->get('year'))
                 <div class='alert alert-danger'>{{ $errors->first('year') }}</div>
@@ -61,7 +61,7 @@
         <div class='form-group'>
             <label for='title'>Enter book title</label>
             <input type='text' class='form-control' id='title' name='title'
-                   value='{{old('title')}}'>
+                   value='{{old('title') ?? 'A Day in the Life'}}'>
             @if($errors->get('title'))
                 <div class='alert alert-danger'>{{ $errors->first('title') }}</div>
             @endif
@@ -70,7 +70,7 @@
         <div class='form-group'>
             <label for='city'>Enter publication city</label>
             <input type='text' class='form-control' id='city' name='city'
-                   value='{{old('city')}}'>
+                   value='{{old('city') ?? 'Boston'}}'>
             @if($errors->get('city'))
                 <div class='alert alert-danger'>{{ $errors->first('city') }}</div>
             @endif
@@ -79,7 +79,7 @@
         <div class='form-group'>
             <label for='publisher'>Enter publisher name</label>
             <input type='text' class='form-control' id='publisher' name='publisher'
-                   value='{{old('publisher')}}'>
+                   value='{{old('publisher') ?? 'The Wall'}}'>
             @if($errors->get('publisher'))
                 <div class='alert alert-danger'>{{ $errors->first('publisher') }}</div>
             @endif
