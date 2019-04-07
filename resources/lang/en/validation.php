@@ -146,4 +146,21 @@ return [
 
     'attributes' => [],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Custom Validation Values
+    |--------------------------------------------------------------------------
+    |
+    | The following language lines are used to swap the HTML values for
+    | something more reader friendly. This helps us make our message more
+    | expressive.
+    |
+    */
+    'values' => [
+        'authorType' => [
+            'single' => 'Single Author',
+            'organization' => 'Organization As Author',
+        ]
+    ]
+
 ];
