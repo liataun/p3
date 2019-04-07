@@ -12,9 +12,9 @@
 */
 
 Route::get('/', 'CitationController@index');
-Route::get('/citation', 'CitationController@buildCitation');
+Route::get('/citation', 'CitationController@show');
+Route::get('/citation/build', 'CitationController@buildCitation');
 
-/**
- * Practice
- */
+Route::get('/user', 'UserController@user');
+
 Route::any('/practice/{n?}', 'PracticeController@index');

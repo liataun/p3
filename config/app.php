@@ -8,9 +8,9 @@ return [
     'nav' => [
         //URL => label
         '/' => 'Home',
-        '/citation' => 'Cite',
-        '/practice' => 'Practice',
+        //'/citation' => 'Cite',
         '/user' => 'User',
+        '/practice' => 'Practice',
     ],
 
     /*

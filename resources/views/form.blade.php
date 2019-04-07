@@ -12,57 +12,77 @@
     </p>
     <h4 class='text-secondary'>Book Citation Form</h4>
 
-    <!-- Form to collect values for our book citation. Send to citation.php to compose. Use logic.php variables to display. -->
-    <form class='text-dark' method='get' action='citation.php'>
+    <form class='text-dark' method='get' action='/citation/build'>
 
         <div class='form-group'>
             <label for='authorType'>Select Author Type</label>
             <select class='form-control' id='authorType' name='authorType'>
-                <!-- Any changes to logic.php must ensure that one and only one option is selected -->
-                <option value='single' <?= ($selected == 'single') ? ('selected') : null; ?>>Single Author</option>
-                <option value='organization' <?= ($selected == 'organization') ? ('selected') : null; ?>>Organization As Author</option>
+                <!-- Any changes to code must ensure that one and only one option is selected -->
+                <option value='single' <?= (old('selected') == 'single') ? ('selected') : null; ?>>Single Author</option>
+                <option value='organization' <?= (old('selected') == 'organization') ? ('selected') : null; ?>>Organization As Author</option>
             </select>
+            @if($errors->get('authorType'))
+                <div class='alert alert-danger'>{{ $errors->first('authorType') }}</div>
+            @endif
         </div>
 
         <div class='form-group'>
             <label for='authorLast'>Enter author last name or organization name</label>
             <input type='text' class='form-control' id='authorLast' name='authorLast'
-                   value='{{$authorLast ?? 'Snow'}}'>
+                   value='{{old('authorLast')}}'>
+            @if($errors->get('authorLast'))
+                <div class='alert alert-danger'>{{ $errors->first('authorLast') }}</div>
+            @endif
         </div>
 
         <div class='form-group'>
             <label for='authorInitials' id='authorInitialsLabel'>Enter author initials</label>
             <input type='text' class='form-control' id='authorInitials' name='authorInitials'
-                   value='{{$authorInitials ?? 'J.'}}'
+                   value='{{old('authorInitials') }}'
                    aria-describedby='authorInitialsLabel authorInitialsInfo'>
             <small class='form-text text-muted' id='authorInitialsInfo'>
                 Required if Author Type is 'Single Author'; include appropriate periods. Do not use if Author Type is 'Organization As Author'.
             </small>
+            @if($errors->get('authorInitials'))
+                <div class='alert alert-danger'>{{ $errors->first('authorInitials') }}</div>
+            @endif
         </div>
 
         <div class='form-group'>
             <label for='year' id='yearLabel'>Enter year of publication</label>
             <input type='number' class='form-control' id='year' name='year'
-                   value='{{$year ?? 2018}}' aria-describedby='yearLabel yearInfo'>
+                   value='{{old('year') }}' aria-describedby='yearLabel yearInfo'>
             <small class='form-text text-muted' id='yearInfo'>Four digit year only.</small>
+            @if($errors->get('year'))
+                <div class='alert alert-danger'>{{ $errors->first('year') }}</div>
+            @endif
         </div>
 
         <div class='form-group'>
             <label for='title'>Enter book title</label>
             <input type='text' class='form-control' id='title' name='title'
-                   value='{{$title ?? 'The Icy Bite of Life'}}'>
+                   value='{{old('title') }}'>
+            @if($errors->get('title'))
+                <div class='alert alert-danger'>{{ $errors->first('title') }}</div>
+            @endif
         </div>
 
         <div class='form-group'>
             <label for='city'>Enter publication city</label>
             <input type='text' class='form-control' id='city' name='city'
-                   value='{{$city ?? 'Winterfell'}}'>
+                   value='{{old('city') }}'>
+            @if($errors->get('city'))
+                <div class='alert alert-danger'>{{ $errors->first('city') }}</div>
+            @endif
         </div>
 
         <div class='form-group'>
             <label for='publisher'>Enter publisher name</label>
             <input type='text' class='form-control' id='publisher' name='publisher'
-                   value='{{$publisher ?? 'The Wall'}}'>
+                   value='{{old('publisher') }}'>
+            @if($errors->get('publisher'))
+                <div class='alert alert-danger'>{{ $errors->first('publisher') }}</div>
+            @endif
         </div>
 
         <div class='form-group'>
@@ -70,52 +90,26 @@
             <input type='checkbox'
                    class='form-check'
                    id='intext'
-                   name='intext' @if($intext == 'Yes') {{'checked'}}@endif>
+                   name='intext' @if(old('intext') == 'on') {{'checked'}}@endif>
             {{$intext}}
         </div>
 
         <div class='form-group'>
             <label for='userEmail' id='userEmailLabel'>What email do you wish we could send this to?</label>
-            <input type='email'
+            <input type='text'
                    class='form-control'
                    id='userEmail'
                    name='userEmail'
                    aria-describedby='userEmailLabel userEmailInfo'
-                   value='{{$userEmail ?? 'You@Education.me'}}'>
+                   value='{{old('userEmail') }}'>
             <small class='form-text text-muted'
                    id='userEmailInfo'>Must be a valid email. Email will NOT be sent.
             </small>
+            @if($errors->get('userEmail'))
+                <div class='alert alert-danger'>{{ $errors->first('userEmail') }}</div>
+            @endif
         </div>
 
         <input type='submit' class='mb-3 btn btn-primary' name='cite' value='Generate Citation'>
     </form>
-
-    <!-- Display errors -->
-    <?php if ($hasErrors): ?>
-    <div class='alert alert-danger' id='errors'>
-        <ul>
-            <?php foreach ($errors as $error): ?>
-            <li><?= $error ?></li>
-            <?php endforeach; ?>
-        </ul>
-    </div>
-    <?php endif ?>
-
-    <!-- Display completed Reference -->
-    <?php if (isset($citation)): ?>
-    <p class='text-success'>{{$authorLast}}
-        ({{$year}}).
-        <span id='italics'>{{$title}}.</span>
-        {{$city}}: {{$publisher}}.
-    </p>
-    <?php endif ?>
-
-    <?php if (isset($intext) and isset($citation)): ?>
-    <p>{{$authorLast}} ({{$year}})</p>
-    <?php endif ?>
-
-    <!-- Learning how to hide/show elements. Might be needed for a more complete citation generator. -->
-    <?php if (!isset($citation) and !$hasErrors): ?>
-    <p class='invisible'>Waiting for form submission!</p>
-    <?php endif ?>
 @endsection

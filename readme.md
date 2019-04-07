@@ -11,7 +11,7 @@
 3. Checkbox to indicate desire for in-text style citation
 
 ## Packages
-
+* [barryvdh/laravel-debugbar](https://github.com/barryvdh/laravel-debugbar)
 
 ## Code style divergences
 
