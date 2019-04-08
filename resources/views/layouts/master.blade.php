@@ -23,7 +23,8 @@
                 @if(Request::is($link)) {{-- If currrent path matches, do no link --}}
                 <li class='nav-item active'>{{$label}}</li>
                 @else {{-- Otherwise create link --}}
-                <li class='nav-item'><a class='nav-link' href='/{{ $link }}'>{{ $label }}</a></li>
+                <li class='nav-item'><a class='<?= ($label == 'Practice') ? 'nav-link disabled' : 'nav-link'; ?>'
+                                        href='/{{ $link }}'>{{ $label }}</a></li>
                 @endif
             </ul>
         @endforeach

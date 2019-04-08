@@ -7,12 +7,25 @@ use Illuminate\Http\Request;
 class PracticeController extends Controller
 {
     /**
-     *
+     * Demo custom 404 page on Production or list out my nav config value in Development
+     */
+    public function practice3()
+    {
+        if (!config('app.debug')) {
+            return abort(404);
+        } else {
+            return config('app.nav');
+        }
+    }
+
+    /**
+     * Pull configuration values
      */
     public function practice2()
     {
-        return 'Need help? Email us at '.config('mail.supportEmail');
+        return 'Config values- debug: ' . config('app.debug') . ' env: ' . config('app.env');
     }
+
     /**
      * Demonstrating the first practice example
      */
@@ -20,36 +33,31 @@ class PracticeController extends Controller
     {
         dump('This is the first example.');
     }
+
     /**
      * ANY (GET/POST/PUT/DELETE)
      * /practice/{n?}
      * This method accepts all requests to /practice/ and
      * invokes the appropriate method.
-     * http://foobooks.loc/practice => Shows a listing of all practice routes
-     * http://foobooks.loc/practice/1 => Invokes practice1
-     * http://foobooks.loc/practice/5 => Invokes practice5
-     * http://foobooks.loc/practice/999 => 404 not found
      */
     public function index($n = null)
     {
-        if (!config('app.debug')) {
-            return abort(404);
-        }
         $methods = [];
-        # Load the requested `practiceN` method
+        // Load the requested `practiceN` method
         if (!is_null($n)) {
             $method = 'practice' . $n; # practice1
-            # Invoke the requested method if it exists; if not, throw a 404 error
+            // Invoke the requested method if it exists; if not, throw a 404 error
             return (method_exists($this, $method)) ? $this->$method() : abort(404);
-        } # If no `n` is specified, show index of all available methods
+        } // If no `n` is specified, show index of all available methods
         else {
-            # Build an array of all methods in this class that start with `practice`
+            // Build an array of all methods in this class that start with `practice`
             foreach (get_class_methods($this) as $method) {
                 if (strstr($method, 'practice')) {
                     $methods[] = $method;
                 }
             }
-            # Load the view and pass it the array of methods
+
+            // Load the view and pass it the array of methods
             return view('practice')->with(['methods' => $methods]);
         }
     }
