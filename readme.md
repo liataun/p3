@@ -22,4 +22,5 @@
 * On production the Practice3 navigation path will return a `404` error. I wanted built in testing of my custom error page. The navbar link is disabled, but the page should be available.
 * I customized the `en` `validation.php` values array to match the `select` input's display text.
 * Database connections and authentication have not been covered, so my user page generates a `Log::info` entry.
+* User test feedback suggested adding content to the right of the form to fill in some of the empty space. While I like the idea, I am refraining from pursing the suggestion to prevent scope creep (and the accompanying risk of bugs).
 * I am still a little confused about how best to design my routes and method names. What I have works, but I suspect building out the site would result in finding a need to change something, I just don't know what that would be at this stage.
