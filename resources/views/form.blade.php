@@ -40,7 +40,7 @@
             <input type='text' class='form-control' id='authorInitials' name='authorInitials'
                    value='{{old('authorInitials')}}'
                    aria-describedby='authorInitialsLabel authorInitialsInfo'>
-            <small class='form-text text-muted' id='authorInitialsInfo'>
+            <small class='form-text text-muted d-inline-flex' id='authorInitialsInfo'>
                 Required if Author Type is 'Single Author'; include appropriate periods. Do not use if Author Type is 'Organization As Author'.
             </small>
             @if($errors->get('authorInitials'))
@@ -52,7 +52,7 @@
             <label for='year' id='yearLabel'>Enter year of publication</label>
             <input type='number' class='form-control' id='year' name='year'
                    value='{{old('year') ?? 1010}}' aria-describedby='yearLabel yearInfo'>
-            <small class='form-text text-muted' id='yearInfo'>Four digit year only.</small>
+            <small class='form-text text-muted d-inline-flex' id='yearInfo'>Four digit year only.</small>
             @if($errors->get('year'))
                 <div class='alert alert-danger'>{{ $errors->first('year') }}</div>
             @endif
@@ -94,7 +94,6 @@
             @if($errors->get('intext'))
                 <div class='alert alert-danger'>{{ $errors->first('intext') }}</div>
             @endif
-            {{old('intext')}}
         </div>
 
         <div class='form-group'>
@@ -105,7 +104,7 @@
                    name='userEmail'
                    aria-describedby='userEmailLabel userEmailInfo'
                    value='{{old('userEmail')}}'>
-            <small class='form-text text-muted'
+            <small class='form-text text-muted d-inline-flex'
                    id='userEmailInfo'>Optional. Must be a valid email. Email will NOT be sent.
             </small>
             @if($errors->get('userEmail'))
@@ -115,4 +114,8 @@
 
         <input type='submit' class='mb-3 btn btn-primary' name='cite' value='Generate Citation'>
     </form>
+
+    @if(count($errors) > 0)
+        <div class='alert alert-danger'>{{ 'Error count: '.count($errors).'. Details are displayed next to input field(s).' }}</div>
+    @endif
 @endsection
