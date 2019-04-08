@@ -8,7 +8,7 @@
 
     @if(isset($fields['authorType']) and isset($citation))
         <h4 class='text-secondary'>Your References citation is:</h4>
-        <p class='text-success'>{{$fields['authorLast']}}
+        <p class='text-success'>{{$fields['authorLast']}}<?= ($fields['authorType'] == 'single') ? ', ' . $fields['authorInitials'] : '.' ?>
             ({{$fields['year']}}).
             <span id='italics'>{{$fields['title']}}.</span>
             {{$fields['city']}}: {{$fields['publisher']}}.
