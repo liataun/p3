@@ -6,7 +6,7 @@
 
 @section('content')
     <p class='text-info'>
-        This site attempts to use the information you provide to create an APA style reference entry.
+        This site uses the information you provide to create an APA style reference entry.
         Features are limited to single authors and organizations with all information available. Books
         published before 1000 A.D. will not be accepted. All inputs are required except as indicated.
     </p>

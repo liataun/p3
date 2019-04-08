@@ -22,7 +22,7 @@
             <ul class='navbar-nav'>
                 @if(Request::is($link)) {{-- If currrent path matches, do no link --}}
                 <li class='nav-item active'>{{$label}}</li>
-                @else {{-- Otherwise create link --}}
+                @else {{-- Otherwise create link - disable Practice page link, but show to remind us the pages can be reached --}}
                 <li class='nav-item'><a class='<?= ($label == 'Practice') ? 'nav-link disabled' : 'nav-link'; ?>'
                                         href='/{{ $link }}'>{{ $label }}</a></li>
                 @endif

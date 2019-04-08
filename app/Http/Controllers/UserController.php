@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\Log;
 
 class UserController extends Controller
 {
+    /**
+     * Stub playing with the idea of having users
+     */
     public function user()
     {
         Log::info('User page stub was accessed on: ' . date('Ymd'));
