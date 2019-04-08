@@ -23,4 +23,5 @@
 * I customized the `en` `validation.php` values array to match the `select` input's display text.
 * Database connections and authentication have not been covered, so my user page generates a `Log::info` entry.
 * User test feedback suggested adding content to the right of the form to fill in some of the empty space. While I like the idea, I am refraining from pursing the suggestion to prevent scope creep (and the accompanying risk of bugs).
+* User test behavior seems to indicate that my Email field may need clarification, but since it is not tied to functionality to being with, the direction of change needed would need further assessment.
 * I am still a little confused about how best to design my routes and method names. What I have works, but I suspect building out the site would result in finding a need to change something, I just don't know what that would be at this stage.
