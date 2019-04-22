@@ -18,8 +18,8 @@
 + Letters and symbols  - are rejected from value field as expected.
 + Invalid page URL - gives basic 404 error.
 + If I skip the Convert and navigate directly to the `showResults` page, the site shows the blue results bar, just empty. If I then enter data, it works.
-+ If I manually edit the HTML of the page and change the Conversion `select`'s value property from 'tometric' to 'slim', I get a 500 Server Error page when I click the Convert button. This could be validated in a way that recovers nicely for the user. Similar with the Unit Type `radio` input value from 'temperature' to 'volume'.
-+ checked really low temperatures. Displaying based on minimum reasonable values makes sense. Could also have given a valdation error. As a design choice either way works, though it might have been nice for the user to get a message to remind them when they ignore the text on the page.
++ If I manually edit the HTML of the page and change the Conversion `select`'s value property from 'tometric' to 'slim', I get a 500 Server Error page when I click the Convert button. This could be validated in a way that recovers nicely for the user by using Laravel's ability to specify an exact set of [allowed values](https://laravel.com/docs/5.8/validation#rule-in). Similar with the Unit Type `radio` input value from 'temperature' to 'volume'.
++ Below absolute value temperatures get converted to minimum in result. Displaying based on minimum reasonable values makes sense. Could also have given a valdation error, though might need to use the [Custom Rules](https://laravel.com/docs/5.8/validation#custom-validation-rules) to do so. As a design choice either way works, though it would have been nice for the user to get a message to remind them, when they ignore the text on the page like I did.
 + Scientific notation number input appears to work, which was a nice surprise. At least for `5.5E+5`.
 
 ## 3. Code: Routes
