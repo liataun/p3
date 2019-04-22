@@ -9,6 +9,8 @@
 + Clean use of space.
 + No obvious problems like spelling or missing elements when first viewing the page.
 + Interface was logically arranged. I liked that the number of zeros in the provided number was preserved to the right of the decimal. Might have been interesting to see the significant digits used in the result too.
++ Looking over on another day: I notice that the Copyright line at the bottom of the page does not have any left padding like the rest of th epage does. Might have been intentional?
++ Looking over on another day: The the extra care taken is evident. Consistent use of capital letters on unites, abbreviation (or not), and the visual degree symbol gives that polish that distinguishes between a well composed project and, if lacking, would have made it seem like a project that was done in a hurry.
 
 ## 2. Functional testing
 + No data - produces expected validation errors
