@@ -23,7 +23,7 @@
 + Scientific notation number input appears to work, which was a nice surprise. At least for `5.5E+5`.
 
 ## 3. Code: Routes
-`routes/web.php` looks fine, simple and makes sense for the flow of the application.
++ `routes/web.php` looks fine, simple and makes sense for the flow of the application.
 
 ## 4. Code: Views
 + Use of template inheritance is present, but I am confused as to why the title property is set in the master layout, yet there is an `h1` tag named `title` that is not provided/used.
