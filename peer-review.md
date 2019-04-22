@@ -7,7 +7,7 @@
 ## 1. Interface
 Address as many of the following points as applicable:
 
-+ What are your initial impressions of the site interface?
++ My initial impressions are that the form and instructions are easy to understand. Clean use of space. No obvious problems like spelling or missing elements when first viewing the page.
 + Were there any parts of the interface that you found confusing, or did not work as you expected?
 + Were there any parts of the interface that you thought worked notably well?
 + Do you have any suggestions for improvements on the interface?
